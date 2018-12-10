@@ -50,3 +50,9 @@ h1 {
 .dots span.active {
     box-shadow: 0 0 0 5px white, 0 0 3px 10px red;
 }
+
+.btnOption {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}

@@ -15,6 +15,8 @@ const slider = [{
 const image = document.querySelector('img.slider');
 const h1 = document.querySelector('h1.slider');
 const dots = [...document.querySelectorAll('.dots span')];
+const btnLeft = document.querySelector('.btnLeft');
+const btnRight = document.querySelector('.btnRight');
 
 const time = 2000;
 let active = 0;
@@ -35,4 +37,23 @@ const changeSlide = () => {
     changeDot();
 }
 
-setInterval(changeSlide, time);
+function clickBtnLeft() {
+    clearInterval(indexInterval);
+    active--;
+    if (active === slider.length) {
+        active = 0;
+    }
+    image.src = slider[active].img;
+    h1.textContent = slider[active].text;
+    changeDot();
+}
+
+function clickBtnRight() {
+    clearInterval(indexInterval);
+    changeSlide();
+}
+
+
+let indexInterval = setInterval(changeSlide, time);
+btnRight.addEventListener('click', clickBtnRight);
+btnLeft.addEventListener('click', clickBtnLeft);
