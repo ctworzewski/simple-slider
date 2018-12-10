@@ -29,28 +29,28 @@ const changeDot = () => {
 
 const changeSlide = () => {
     active++;
-    if (active === slider.length) {
-        active = 0;
-    }
-    image.src = slider[active].img;
-    h1.textContent = slider[active].text;
+    partChangeSlider()
     changeDot();
 }
 
 function clickBtnLeft() {
     clearInterval(indexInterval);
     active--;
-    if (active === slider.length) {
-        active = 0;
-    }
-    image.src = slider[active].img;
-    h1.textContent = slider[active].text;
+    partChangeSlider()
     changeDot();
 }
 
 function clickBtnRight() {
     clearInterval(indexInterval);
     changeSlide();
+}
+
+function partChangeSlider() {
+    if (active === slider.length) {
+        active = 0;
+    }
+    image.src = slider[active].img;
+    h1.textContent = slider[active].text;
 }
 
 
