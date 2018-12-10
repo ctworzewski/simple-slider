@@ -14,17 +14,25 @@ const slider = [{
 
 const image = document.querySelector('img.slider');
 const h1 = document.querySelector('h1.slider');
+const dots = [...document.querySelectorAll('.dots span')];
 
 const time = 2000;
 let active = 0;
 
+const changeDot = () => {
+    const activeDot = dots.findIndex(dot => dot.classList.contains('active'));
+    dots[activeDot].classList.remove('active');
+    dots[active].classList.add('active');
+}
+
 const changeSlide = () => {
     active++;
-    if (active == slider.length) {
+    if (active === slider.length) {
         active = 0;
     }
-    image.src = slider[active].img; //w obiekcie image do atrybutu src przypisuję wartość atrybutu img obiektu, który jest w tablicy slider pod indeksem active
+    image.src = slider[active].img;
     h1.textContent = slider[active].text;
+    changeDot();
 }
 
 setInterval(changeSlide, time);
