@@ -54,5 +54,7 @@ h1 {
 .btnOption {
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
